@@ -74,3 +74,5 @@ for _ in range(n):
     x = int(input())
     a.append(x) #point
 ```
+
+x,y=y,xとするとxとyを入れ替えることができる
