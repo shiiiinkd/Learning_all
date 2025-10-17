@@ -55,8 +55,8 @@ a = {int(input()) for _ in range(n)} #{}:セット内包表記
 print(len(a))
 
 ```
-a = {int(input()) for _ in range(n)} #{}：セット内包表記
-a = [int(input()) for _ in range(n)] #[]：リスト内包表記
+`a = {int(input()) for _ in range(n)} #{}：セット内包表記`
+`a = [int(input()) for _ in range(n)] #[]：リスト内包表記`
 
 セット内包表記は重複を自動で削除して追加してくれる。
 リスト内包表記は重複があってもそのまま追加される。
