@@ -1,7 +1,36 @@
-# 注意　まだまとめていない！
+
 
 ## 学んだこと
-区間スケジューリング
+区間スケジューリング、Greedy問題（　「終了時刻」が早い順に選ぶ  ）
+
+区間スケジューリング問題　→　終了時刻が早い順に選ぶGreedyが最適解
+区間の長さは必ずしも重要ではなく終了時刻でソートすることが肝
+
+
+## 模範解答
+```python
+# 終了時刻が早い順にソートし、終了時刻＜開始時刻なら開催回数を＋１する
+n = int(input())
+
+campaign = []
+for i in range(n):
+    l, r = map(int, input().split())
+    campaign.append([l, r]) # 開始時刻、終了時刻を紐づけて格納する
+    # 
+
+campaign.sort(key=lambda x: x[1]) 
+# 終了時刻を昇順ソート→終了時刻が早いものから順に取り出せるようになる（Greedy）
+
+participated_campaigns = 0
+campain_lastday = 0
+for i in range(n):
+    if campain_lastday < campaign[i][0]: # 終了時刻＜開催時刻 → 開催可能＋１
+        participated_campaigns += 1
+        campain_lastday = campaign[i][1] # 終了時刻を更新
+
+print(participated_campaigns)
+```
+
 
 ## 問題内容
 paiza スキルチェックでは年に何度かキャンペーンを開催しています。各回ではキャンペーン問題が提供され、その問題を解くと抽選で商品がもらえます。また、キャンペーンは n 回開催され、 i 回目のキャンペーンは paiza サービス開始日から数えて、 l_i 日目から r_i 日目の間(l_i 日目、 r_i 日目を含む)に開催される予定です。  
@@ -68,23 +97,3 @@ print(x)
 print(s)
 ```
 
-## 模範解答
-```python
-n = int(input())
-
-campaign = []
-for i in range(n):
-    l, r = map(int, input().split())
-    campaign.append([l, r])
-
-campaign.sort(key=lambda x: x[1])
-
-participated_campaigns = 0
-campain_lastday = 0
-for i in range(n):
-    if campain_lastday < campaign[i][0]:
-        participated_campaigns += 1
-        campain_lastday = campaign[i][1]
-
-print(participated_campaigns)
-```
