@@ -10,6 +10,7 @@
 n = len(A)
 S = [0] * (n + 1)
 
+#i,i-1を参照すること
 for i in range(1, n + 1):
     S[i] = S[i-1] + A[i-1]  # Aは0-indexでもOK（ここだけ注意）
 　　
@@ -31,6 +32,7 @@ print(s[7]-s[1])
 
 ## 模範解答
 ```python
+#あまりよくない。i,i-1を参照するというルールを徹底する
 a = [int(x) for x in input().split()]
 s = [0] * 11
 
